@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="ThemeHouse_PayPalSandbox" title="[⌂] PayPal Sandbox" version_string="1.0.1" version_id="1447261019" url="http://xf.themehouse.io" install_callback_class="ThemeHouse_Install" install_callback_method="install" uninstall_callback_class="ThemeHouse_Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="ThemeHouse_Listener_ControllerPreDispatch" callback_method="controllerPreDispatch" active="1" hint="" description=""/>
+    <listener event_id="file_health_check" execute_order="10" callback_class="ThemeHouse_PayPalSandbox_Listener_FileHealthCheck" callback_method="fileHealthCheck" active="1" hint="" description=""/>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="ThemeHouse_Listener_InitDependencies" callback_method="initDependencies" active="1" hint="" description=""/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_PayPalSandbox_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Account" description="XenForo_ControllerPublic_Account (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="ThemeHouse_PayPalSandbox_Listener_LoadClass" callback_method="loadClassController" active="1" hint="" description="(For XenForo 1.1 and below)" compatibility_switch="1"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="th_payPalSandbox" display_order="2000" debug_only="0"/>
+    <option option_id="th_payPalSandbox_sandboxUrl" edit_format="radio" data_type="string" can_backup="1">
+      <default_value>paypal</default_value>
+      <edit_format_params>none={xen:phrase th_no_sandbox_paypalsandbox}
+paypal={xen:phrase th_paypal_sandbox_paypalsandbox}
+localhost={xen:phrase th_localhost_sandbox_paypalsandbox}</edit_format_params>
+      <sub_options/>
+      <relation group_id="th_payPalSandbox" display_order="1"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="option_group_th_payPalSandbox" version_id="1373636720" version_string="1.0.1"><![CDATA[PayPal Sandbox by ThemeHouse]]></phrase>
+    <phrase title="option_group_th_payPalSandbox_description" version_id="1373636720" version_string="1.0.1"><![CDATA[Options for the PayPal Sandbox by ThemeHouse add-on.]]></phrase>
+    <phrase title="option_th_payPalSandbox_sandboxUrl" version_id="1373636720" version_string="1.0.1"><![CDATA[Sandbox URL]]></phrase>
+    <phrase title="option_th_payPalSandbox_sandboxUrl_explain" version_id="1373636720" version_string="1.0.1"><![CDATA[]]></phrase>
+    <phrase title="th_localhost_sandbox_paypalsandbox" version_id="1373636720" version_string="1.0.1"><![CDATA[Localhost Sandbox]]></phrase>
+    <phrase title="th_no_sandbox_paypalsandbox" version_id="1373636720" version_string="1.0.1"><![CDATA[No Sandbox]]></phrase>
+    <phrase title="th_paypal_sandbox_paypalsandbox" version_id="1373636720" version_string="1.0.1"><![CDATA[PayPal Sandbox]]></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="public">
+      <prefix original_prefix="paypal-sandbox" class="ThemeHouse_PayPalSandbox_Route_Prefix_PayPalSandbox" build_link="none"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications>
+    <modification template="footer" modification_key="th_copyrightNotice_payPalSandbox" description="Copyright notice for [⌂] PayPal Sandbox" execution_order="1" enabled="1" action="callback">
+      <find><![CDATA[/{xen:phrase (?:xenforo|extra)_copyright}/]]></find>
+      <replace><![CDATA[ThemeHouse_Listener_InitDependencies::copyrightNotice]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
